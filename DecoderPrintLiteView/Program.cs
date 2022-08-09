@@ -1,5 +1,5 @@
 ﻿using System;
-
+using DecoderPrintLiteLibs;
 
 
 
@@ -51,7 +51,8 @@ namespace DevoderPrintView
         public static void GoToEncodingPage()
         {
             int input;
-            bool inputStatus;            
+            bool inputStatus;     
+            EncodingController controller = new();       
             while(true)
             {
                 Console.Clear();
@@ -71,13 +72,19 @@ namespace DevoderPrintView
                 switch(input)
                 {
                     case 1:
-   
+                        
+                        // plug
+                        controller.Start();
                         break;
                     case 2: 
 
+                        // plug
+                        controller.Start();
                         break;
                     case 3:
 
+                        // plug
+                        controller.Start();
                         break;
                     default:
                         Console.WriteLine($"Point {input} missing from menu!\nPress any button to continue...");
