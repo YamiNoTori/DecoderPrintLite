@@ -51,8 +51,7 @@ namespace DevoderPrintView
         public static void GoToEncodingPage()
         {
             int input;
-            bool inputStatus;     
-            EncodingController controller = new();       
+            bool inputStatus;     ;       
             while(true)
             {
                 Console.Clear();
@@ -69,28 +68,38 @@ namespace DevoderPrintView
                     Console.ReadKey();
                     continue;
                 }
-                switch(input)
-                {
-                    case 1:
+                // switch(input)
+                // {
+                //     case 1:
                         
-                        // plug
-                        controller.Start();
-                        break;
-                    case 2: 
+                //         // plug`s
+                //         // init algoritm
+                //         // controller.Create<algName>
+                //         // start
+                //         EncodingController<CaesarCreator> controller = new();
+                //         controller.Start();
+                //         break;
+                //     case 2: 
 
-                        // plug
-                        controller.Start();
-                        break;
-                    case 3:
+                //         // plug`s
+                //         // init algoritm
+                //         // controller.Create<algName>
+                //         // start
+                //         controller.Start();
+                //         break;
+                //     case 3:
 
-                        // plug
-                        controller.Start();
-                        break;
-                    default:
-                        Console.WriteLine($"Point {input} missing from menu!\nPress any button to continue...");
-                        Console.ReadKey();
-                        continue;
-                }
+                //         // plug`s
+                //         // init algoritm
+                //         // controller.Create<algName>
+                //         // start
+                //         controller.Start();
+                //         break;
+                //     default:
+                //         Console.WriteLine($"Point {input} missing from menu!\nPress any button to continue...");
+                //         Console.ReadKey();
+                //         continue;
+                // }
                 Console.ReadKey();
                 System.Environment.Exit(-1);
 
