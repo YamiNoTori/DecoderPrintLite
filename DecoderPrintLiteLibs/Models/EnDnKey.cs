@@ -12,7 +12,6 @@ namespace DecoderPrintLiteLibs.Models
     {
         public T KeyValue {get; private set;}
         public Key(T key) { KeyValue = key; }
-
         public override string ToString()
         {
             return $"KeyData:\n\tType - {KeyValue?.GetType()}\n\tValue - {KeyValue?.ToString()}";
