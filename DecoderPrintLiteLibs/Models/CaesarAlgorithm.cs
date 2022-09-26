@@ -9,42 +9,50 @@ namespace DecoderPrintLiteLibs.Models
         public CaesarAlgorithm(T value) : base(value) {}
 
         // переопределённые методы шифрования/дешифрования
+        /// <summary>Шифрование</summary>
+        /// <param name="data">Исходное сообщение</param>
+        /// <returns>(string) зашифрованное сообщение</returns>
         public override string Encoding(string data)
         {
-            if (AlgorithmKey.GetType()==typeof(int))
+            if (AlgorithmKey.KeyValue!=null && AlgorithmKey.KeyValue is int key)
             {
                 string result = "";
-                //List<char> messageBuffers = new(data.Length);
-                Dictionary<int, char> messageBuffers = new();
-                // проверка исходного сообщения:
-                //          1. Каждая буква принадлежит множеству букв русского алфавита и записывается в буфер
                 for (int i = 0; i < data.Length; i++)
                 {
                     for (int j = 0; j < AlphabetData.RusUpper.Length; j++)
-                        if (Char.ToUpper(data[i])==AlphabetData.RusUpper[j])
+                    {
+                        // если буква верхнего регистра
+                        if (data[i]==Char.ToUpper(data[i]))
                         {
-                            // GOTO не могу использовать ключ =( 
-                            result.Append(AlphabetData.RusUpper[j + AlgorithmKey.KeyValue]);
-
-                            messageBuffers.Add(j, Char.ToUpper(data[i]));
-                            break;
+                            if (data[i]==AlphabetData.RusUpper[j])
+                            { 
+                                result += AlphabetData.RusUpper[(j + key) % 33];
+                                break;
+                            }
                         }
-
-                    
-
-
+                        else if (data[i]==Char.ToLower(data[i]))
+                        {
+                            if (data[i]==AlphabetData.RusLower[j])
+                            {
+                                result += AlphabetData.RusLower[(j + key) % 33];
+                                break;
+                            }
+                        }
+                    }
                 }
-
-
-
                 if (string.IsNullOrEmpty(result))
                     throw new Exception("Ошибка в процессе шифрации данных! Выходное сообщение пусто или null");
                 return result;
             }
             else
                 throw new Exception("Ошибка типа ключа алгоритма шифрования Цезаря! KeyType: {AlgorithmKey.GetType()}");
+            
         }
 
+
+        /// <summary>Дешифрование</summary>
+        /// <param name="data">Зашифрованное сообщение</param>
+        /// <returns>(string) расшифрованное сообщение</returns>
         public override string Decoding(string data)
         {
             return base.Decoding(data);

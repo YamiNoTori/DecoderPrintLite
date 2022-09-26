@@ -13,8 +13,8 @@ namespace DecoderPrintLiteLibs.Models
         }
 
         // Методы шифрования/дешифрования данных
-        public virtual string Encoding(string data) { throw new Exception(); }
-        public virtual string Decoding(string data) { throw new Exception(); }
+        public virtual string Encoding(string data) { throw new NotImplementedException(); }
+        public virtual string Decoding(string data) { throw new NotImplementedException(); }
 
 
         public override string ToString()

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoderPrintLiteView", "Dec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoderPrintLiteLibs", "DecoderPrintLiteLibs\DecoderPrintLiteLibs.csproj", "{108A0411-A82F-4D85-9311-0BF08894E6CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestsProject", "UnitTestsProject\UnitTestsProject.csproj", "{275C3F48-9BD0-470F-A8BE-A9E6845103DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{108A0411-A82F-4D85-9311-0BF08894E6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{108A0411-A82F-4D85-9311-0BF08894E6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{108A0411-A82F-4D85-9311-0BF08894E6CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{275C3F48-9BD0-470F-A8BE-A9E6845103DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{275C3F48-9BD0-470F-A8BE-A9E6845103DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{275C3F48-9BD0-470F-A8BE-A9E6845103DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{275C3F48-9BD0-470F-A8BE-A9E6845103DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -4,9 +4,8 @@ namespace DecoderPrintLiteLibs.Models.Data
 {
     public static class AlphabetData
     {
-        public static char[] RusUpper = Enumerable.Range(0, 32).Select((x, i) => (char)('А' + i)).ToArray();
-
-
+        public static char[] RusUpper = {'А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'};
+        public static char[] RusLower = {'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я'};
     }
 
 
