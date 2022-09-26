@@ -55,7 +55,38 @@ namespace DecoderPrintLiteLibs.Models
         /// <returns>(string) расшифрованное сообщение</returns>
         public override string Decoding(string data)
         {
-            return base.Decoding(data);
+            if (AlgorithmKey.KeyValue!=null && AlgorithmKey.KeyValue is int key)
+            {
+                string result = "";
+                for (int i = 0; i < data.Length; i++)
+                {
+                    for (int j = 0; j < AlphabetData.RusUpper.Length; j++)
+                    {
+                        // если буква верхнего регистра
+                        if (data[i]==Char.ToUpper(data[i]))
+                        {
+                            if (data[i]==AlphabetData.RusUpper[j])
+                            { 
+                                result += AlphabetData.RusUpper[((j - key) + 33) % 33];
+                                break;
+                            }
+                        }
+                        else if (data[i]==Char.ToLower(data[i]))
+                        {
+                            if (data[i]==AlphabetData.RusLower[j])
+                            {
+                                result += AlphabetData.RusLower[((j - key) + 33) % 33];
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (string.IsNullOrEmpty(result))
+                    throw new Exception("Ошибка в процессе дешифрации данных! Исходное сообщение пусто или null");
+                return result;
+            }
+            else
+                throw new Exception("Ошибка типа ключа алгоритма шифрования Цезаря! KeyType: {AlgorithmKey.GetType()}");
         }
 
 

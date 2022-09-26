@@ -8,18 +8,34 @@ public class Tests
     {
     }
 
-    [TestCase("Январь", "Врегуя")]
-    [TestCase("Вальгалла","Егояёгоог")]
-    public void CaesarTest(string originMessage, string expectedMessage)
+    [TestCase(3, "Январь", "Врегуя")]
+    [TestCase(32, "Вальгалла","Бякывяккя")]
+    [TestCase(9, "Транквилизатор", "Ыщицуксфсриычщ")]
+    public void CaesarEncodingTest(int key, string originMessage, string expectedMessage)
     {
         // Arrange
-        CaesarAlgorithm<int> alg = new CaesarAlgorithm<int>(3);
+        CaesarAlgorithm<int> alg = new CaesarAlgorithm<int>(key);
         // Act
         string actualMessage = alg.Encoding(originMessage);
         // Assert
         Assert.That(actualMessage==expectedMessage, $"Error! Result: {actualMessage}");
         // Log
-        //NUnit.Framework.TestContext.Progress.WriteLine($"\nUT[CaesarTest]\nResult: {actualMessage}");
+        NUnit.Framework.TestContext.Progress.WriteLine($"\nUT[CaesarEncodingTest]\nResult: {actualMessage}");
+    }
+
+    [TestCase(3, "Врегуя", "Январь")]
+    [TestCase(1, "Наш","Мяч")]
+    [TestCase(32, "ЮпыъбитЙъубыие", "ЯрьывйуКыфвьйё")]    
+    public void CaesarDecodingTest(int key, string encodingMessage, string expectedMessage)
+    {
+        // Arrange
+        CaesarAlgorithm<int> alg = new CaesarAlgorithm<int>(key);
+        // Act
+        string actualMessage = alg.Decoding(encodingMessage);
+        // Assert
+        Assert.That(actualMessage==expectedMessage, $"Error! Result: {actualMessage}");
+        // Log
+        NUnit.Framework.TestContext.Progress.WriteLine($"\nUT[CaesarDecodingTest]\nResult: {actualMessage}");        
     }
 
 }
